@@ -10,23 +10,9 @@ import statsmodels.api as sm
 from plotly.subplots import make_subplots
 from prophet import Prophet
 from datetime import datetime, timedelta
-st.set_page_config(page_title="SunPower Overview Dash",page_icon="🧑‍🚀",layout="wide")
+st.set_page_config(page_title="Account Overview Dash",page_icon="🧑‍🚀",layout="wide")
 
 def password_protection():
-    if 'authenticated' not in st.session_state:
-        st.session_state.authenticated = False
-        
-    if not st.session_state.authenticated:
-        password = st.text_input("Enter Password:", type="password")
-        correct_hashed_password = "Sunpower1234"
-        
-        if st.button("Login"):
-            if password == correct_hashed_password:
-                st.session_state.authenticated = True
-                main_dashboard()
-            else:
-                st.error("Incorrect Password. Please try again or contact the administrator.")
-    else:
         main_dashboard()
 
 def main_dashboard():
